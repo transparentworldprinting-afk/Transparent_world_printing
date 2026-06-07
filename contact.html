@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Transparent World Printing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#050505;
+color:white;
+overflow-x:hidden;
+line-height:1.7;
+}
+
+/* Background */
+
+body::before{
+content:'';
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%, rgba(0,170,255,.15), transparent 30%),
+radial-gradient(circle at 80% 30%, rgba(0,170,255,.10), transparent 30%),
+radial-gradient(circle at 50% 80%, rgba(0,170,255,.08), transparent 30%);
+z-index:-1;
+}
+
+/* Header */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.8);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(0,191,255,.15);
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo img{
+width:70px;
+height:70px;
+object-fit:contain;
+}
+
+.logo-text h2{
+font-size:1.4rem;
+text-shadow:0 0 15px #00aaff;
+}
+
+.logo-text p{
+font-size:.75rem;
+color:#9fd9ff;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover,
+nav a.active{
+color:#00bfff;
+text-shadow:0 0 15px #00bfff;
+}
+
+/* Hero */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:140px 20px 80px;
+background:
+linear-gradient(rgba(0,0,0,.85), rgba(0,0,0,.9)),
+url("transparent_world_logo.png");
+background-size:500px;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+.hero-content{
+max-width:900px;
+}
+
+.badge{
+display:inline-block;
+padding:10px 25px;
+border-radius:50px;
+border:1px solid rgba(0,191,255,.3);
+background:rgba(255,255,255,.05);
+margin-bottom:25px;
+color:#00bfff;
+}
+
+.hero h1{
+font-size:4rem;
+line-height:1.2;
+margin-bottom:20px;
+text-shadow:
+0 0 15px #00aaff,
+0 0 30px #00aaff,
+0 0 60px #00aaff;
+}
+
+.hero p{
+font-size:1.1rem;
+color:#d8edff;
+margin-bottom:35px;
+}
+
+/* Buttons */
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+margin:10px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:.4s;
+}
+
+.btn-primary{
+background:#00aaff;
+color:white;
+box-shadow:
+0 0 20px #00aaff,
+0 0 40px #00aaff;
+}
+
+.btn-primary:hover{
+transform:translateY(-5px);
+}
+
+.btn-outline{
+border:2px solid #00aaff;
+color:#00aaff;
+}
+
+.btn-outline:hover{
+background:#00aaff;
+color:white;
+}
+
+/* Sections */
+
+.container{
+width:90%;
+max-width:1300px;
+margin:auto;
+padding:100px 0;
+}
+
+.section-title{
+font-size:2.8rem;
+text-align:center;
+margin-bottom:20px;
+text-shadow:0 0 15px #00aaff;
+}
+
+.section-subtitle{
+text-align:center;
+max-width:800px;
+margin:auto auto 60px;
+color:#b8dfff;
+}
+
+/* Cards */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(15px);
+border:1px solid rgba(0,191,255,.15);
+padding:35px;
+border-radius:20px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,191,255,.3);
+}
+
+.card h3{
+color:#00bfff;
+margin-bottom:15px;
+}
+
+/* Contact Form */
+
+.contact-form{
+max-width:900px;
+margin:auto;
+background:rgba(255,255,255,.05);
+padding:40px;
+border-radius:25px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(0,191,255,.15);
+}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:15px;
+margin-bottom:20px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(0,191,255,.2);
+border-radius:10px;
+color:white;
+font-family:'Poppins',sans-serif;
+}
+
+.contact-form textarea{
+resize:none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+outline:none;
+border-color:#00aaff;
+box-shadow:0 0 15px rgba(0,170,255,.3);
+}
+
+/* CTA */
+
+.cta{
+background:rgba(255,255,255,.05);
+padding:50px;
+border-radius:25px;
+text-align:center;
+border:1px solid rgba(0,191,255,.15);
+}
+
+/* Footer */
+
+footer{
+background:#000;
+text-align:center;
+padding:30px;
+border-top:1px solid rgba(0,191,255,.15);
+}
+
+footer p{
+color:#9fd9ff;
+}
+
+/* Mobile */
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:2.5rem;
+}
+
+nav{
+display:none;
+}
+
+.logo img{
+width:55px;
+height:55px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<img src="transparent_world_logo.png" alt="Transparent World Logo">
+
+<div class="logo-text">
+<h2>Transparent World Printing</h2>
+<p>Your Trusted Printing & Business Support Partner</p>
+</div>
+</div>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="contact.html" class="active">Contact</a></li>
+</ul>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+Contact • Support • Consultation
+</div>
+
+<h1>Let's Build Something Great Together</h1>
+
+<p>
+Need professional printing, business documentation,
+website development, ICT support or office solutions?
+Our team is ready to assist you.
+</p>
+
+<a href="#contact-form" class="btn btn-primary">
+Send Message
+</a>
+
+<a href="services.html" class="btn btn-outline">
+Our Services
+</a>
+
+</div>
+
+</section>
+
+<section class="container">
+
+<h2 class="section-title">
+Contact Information
+</h2>
+
+<p class="section-subtitle">
+Reach Transparent World Printing through any of the channels below.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>📧 Email</h3>
+<p>transparentworldprinting@gmail.com</p>
+</div>
+
+<div class="card">
+<h3>📱 Phone</h3>
+<p>+675 XXX XXXX</p>
+</div>
+
+<div class="card">
+<h3>📍 Location</h3>
+<p>Papua New Guinea</p>
+</div>
+
+<div class="card">
+<h3>🕒 Business Hours</h3>
+<p>
+Monday - Friday<br>
+8:00 AM - 5:00 PM
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="container" id="contact-form">
+
+<h2 class="section-title">
+Send Us A Message
+</h2>
+
+<p class="section-subtitle">
+Tell us about your project and we will get back to you quickly.
+</p>
+
+<div class="contact-form">
+
+<form>
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="text" placeholder="Phone Number">
+
+<input type="text" placeholder="Subject" required>
+
+<textarea rows="7" placeholder="Type your message here..." required></textarea>
+
+<button type="submit" class="btn btn-primary">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<section class="container">
+
+<h2 class="section-title">
+Why Choose Us?
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>⚡ Fast Response</h3>
+<p>
+Quick quotations and professional communication.
+</p>
+</div>
+
+<div class="card">
+<h3>✅ Reliable Service</h3>
+<p>
+Trusted by businesses, schools, churches and NGOs.
+</p>
+</div>
+
+<div class="card">
+<h3>🌍 PNG Focused</h3>
+<p>
+Dedicated to supporting communities across Papua New Guinea.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="container">
+
+<div class="cta">
+
+<h2 style="margin-bottom:20px;">
+Ready To Start Your Project?
+</h2>
+
+<p>
+Partner with Transparent World Printing for professional,
+affordable and reliable solutions tailored to your needs.
+</p>
+
+<br>
+
+<a href="mailto:transparentworldprinting@gmail.com"
+class="btn btn-primary">
+Email Us Today
+</a>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Transparent World Printing. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
