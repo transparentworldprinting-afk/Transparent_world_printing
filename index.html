@@ -1,20 +1,330 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transparent World Printing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#020202;
+color:#fff;
+overflow-x:hidden;
+line-height:1.7;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(20px);
+z-index:1000;
+border-bottom:1px solid rgba(0,191,255,.2);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo img{
+width:70px;
+height:70px;
+object-fit:contain;
+}
+
+.logo-text h2{
+font-size:1.4rem;
+color:#fff;
+text-shadow:0 0 15px #00bfff;
+}
+
+.logo-text p{
+font-size:.75rem;
+color:#bfe9ff;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav ul li a{
+color:#fff;
+text-decoration:none;
+font-weight:500;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#00bfff;
+text-shadow:0 0 10px #00bfff;
+}
+
+/* HERO */
+
+.hero{
+position:relative;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:150px 20px;
+overflow:hidden;
+
+background:
+radial-gradient(circle at center,
+rgba(0,170,255,.15) 0%,
+rgba(0,0,0,.95) 65%),
+#000;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:700px;
+height:700px;
+background:url('transparent_world_logo.png') center center no-repeat;
+background-size:contain;
+opacity:.12;
+animation:float 8s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0px);}
+}
+
+.hero-content{
+position:relative;
+z-index:10;
+max-width:1000px;
+}
+
+.badge{
+display:inline-block;
+padding:10px 25px;
+border-radius:50px;
+border:1px solid rgba(0,191,255,.3);
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(15px);
+margin-bottom:25px;
+color:#9edfff;
+}
+
+.hero h1{
+font-size:4.5rem;
+line-height:1.1;
+margin-bottom:25px;
+
+text-shadow:
+0 0 20px #00aaff,
+0 0 50px #00aaff,
+0 0 100px rgba(0,170,255,.4);
+}
+
+.hero p{
+max-width:850px;
+margin:auto;
+font-size:1.15rem;
+color:#d9f0ff;
+margin-bottom:40px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+margin:10px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.btn-primary{
+background:#00aaff;
+color:#fff;
+box-shadow:0 0 20px #00aaff;
+}
+
+.btn-primary:hover{
+transform:translateY(-5px);
+}
+
+.btn-outline{
+border:2px solid #00aaff;
+color:#00aaff;
+}
+
+.btn-outline:hover{
+background:#00aaff;
+color:#fff;
+}
+
+.stats{
+margin-top:60px;
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.stat{
+background:rgba(255,255,255,.05);
+padding:25px;
+border-radius:20px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(0,191,255,.15);
+min-width:180px;
+}
+
+.stat h2{
+font-size:2rem;
+color:#00bfff;
+}
+
+/* CONTENT */
+
+.container{
+width:90%;
+max-width:1300px;
+margin:auto;
+padding:100px 0;
+}
+
+.section-title{
+font-size:2.8rem;
+text-align:center;
+margin-bottom:20px;
+text-shadow:0 0 15px #00bfff;
+}
+
+.section-subtitle{
+text-align:center;
+color:#bfe9ff;
+max-width:850px;
+margin:0 auto 50px;
+}
+
+.about{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+}
+
+.about-box{
+background:rgba(255,255,255,.05);
+padding:35px;
+border-radius:20px;
+backdrop-filter:blur(20px);
+border:1px solid rgba(0,191,255,.15);
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(20px);
+border:1px solid rgba(0,191,255,.15);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(0,191,255,.25);
+}
+
+.card h3{
+color:#00bfff;
+margin-bottom:15px;
+}
+
+.cta{
+text-align:center;
+background:rgba(255,255,255,.05);
+padding:50px;
+border-radius:25px;
+border:1px solid rgba(0,191,255,.15);
+backdrop-filter:blur(20px);
+}
+
+footer{
+background:#000;
+text-align:center;
+padding:30px;
+border-top:1px solid rgba(0,191,255,.15);
+}
+
+footer p{
+color:#9fdfff;
+}
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:2.8rem;
+}
+
+nav{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
 <body>
 
 <header>
 
 <div class="logo">
-<img src="transparent_world_logo.png" alt="Transparent World Logo">
+<img src="transparent_world_logo.png" alt="Logo">
 
 <div class="logo-text">
 <h2>Transparent World Printing</h2>
 <p>Your Trusted Printing & Business Support Partner</p>
 </div>
+
 </div>
 
 <nav>
 <ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About Us</a></li>
+<li><a href="#">Home</a></li>
+<li><a href="about.html">About</a></li>
 <li><a href="services.html">Services</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
@@ -26,21 +336,47 @@
 
 <div class="hero-content">
 
-<h1>Transparent World Printing</h1>
+<div class="badge">
+🌍 Papua New Guinea • Printing • ICT • Business Solutions
+</div>
+
+<h1>
+Building A Transparent Future Through Innovation
+</h1>
 
 <p>
-Professional Printing, Business Documentation,
-Proposal Writing, Website Development,
-ICT Solutions and Office Support Services in Papua New Guinea.
+Transparent World Printing delivers professional printing,
+business documentation, proposal writing, website development,
+ICT support services and digital solutions for businesses,
+schools, NGOs, churches and communities across Papua New Guinea.
 </p>
 
 <a href="contact.html" class="btn btn-primary">
-Get A Quote
+Get A Free Quote
 </a>
 
 <a href="services.html" class="btn btn-outline">
-Our Services
+Explore Services
 </a>
+
+<div class="stats">
+
+<div class="stat">
+<h2>100%</h2>
+<p>Client Focused</p>
+</div>
+
+<div class="stat">
+<h2>PNG</h2>
+<p>Nationwide Support</p>
+</div>
+
+<div class="stat">
+<h2>24/7</h2>
+<p>Customer Service</p>
+</div>
+
+</div>
 
 </div>
 
@@ -49,38 +385,30 @@ Our Services
 <section class="container">
 
 <h2 class="section-title">
-Welcome to Transparent World Printing
+Welcome To Transparent World
 </h2>
 
 <p class="section-subtitle">
-Providing professional printing, business documentation,
-ICT support and digital solutions throughout Papua New Guinea.
+Delivering reliable printing, ICT and business support solutions
+with professionalism, innovation and transparency.
 </p>
 
 <div class="about">
 
 <div class="about-box">
-
-<h3>Professional Solutions</h3>
-
+<h3>Professional Printing</h3>
 <p>
-We provide quality printing services, proposal writing,
-business profile development, website creation,
-ICT solutions and professional office support services.
+High-quality printing, photocopying, scanning, binding,
+document production and office support services.
 </p>
-
 </div>
 
 <div class="about-box">
-
-<h3>Trusted Service Partner</h3>
-
+<h3>Digital & Business Solutions</h3>
 <p>
-Our mission is to help businesses, schools,
-churches, NGOs and individuals succeed through
-affordable and reliable professional services.
+Website development, proposal writing, business profiles,
+ICT support and digital transformation services.
 </p>
-
 </div>
 
 </div>
@@ -93,73 +421,21 @@ affordable and reliable professional services.
 Featured Services
 </h2>
 
-<p class="section-subtitle">
-A glimpse of the professional solutions we provide.
-</p>
-
 <div class="services">
 
 <div class="card">
-<h3>Printing Solutions</h3>
-<p>
-Colour printing, black & white printing,
-bulk printing and document production.
-</p>
+<h3>🖨 Printing Solutions</h3>
+<p>Professional printing services for individuals and organizations.</p>
 </div>
 
 <div class="card">
-<h3>Business Documentation</h3>
-<p>
-Business profiles, proposals, reports,
-letters and official documentation.
-</p>
+<h3>📄 Documentation</h3>
+<p>Business profiles, reports, proposals and official documents.</p>
 </div>
 
 <div class="card">
-<h3>Website Development</h3>
-<p>
-Professional websites for businesses,
-organizations and institutions.
-</p>
-</div>
-
-</div>
-
-<div style="text-align:center;margin-top:40px;">
-<a href="services.html" class="btn btn-primary">
-View All Services
-</a>
-</div>
-
-</section>
-
-<section class="container">
-
-<h2 class="section-title">
-Why Choose Transparent World?
-</h2>
-
-<div class="services">
-
-<div class="card">
-<h3>Quality</h3>
-<p>
-Professional workmanship and attention to detail.
-</p>
-</div>
-
-<div class="card">
-<h3>Reliability</h3>
-<p>
-Dependable services delivered on time.
-</p>
-</div>
-
-<div class="card">
-<h3>Innovation</h3>
-<p>
-Modern solutions tailored to client needs.
-</p>
+<h3>💻 Website Development</h3>
+<p>Modern websites and digital business solutions.</p>
 </div>
 
 </div>
@@ -168,16 +444,15 @@ Modern solutions tailored to client needs.
 
 <section class="container">
 
-<div class="contact-box">
+<div class="cta">
 
 <h2 style="margin-bottom:20px;">
 Ready To Start Your Project?
 </h2>
 
 <p>
-Contact our team today and discover how
-Transparent World Printing can help your
-business or organization.
+Partner with Transparent World Printing for professional,
+reliable and innovative solutions.
 </p>
 
 <br>
@@ -196,3 +471,4 @@ Contact Us Today
 
 </body>
 </html>
+```
