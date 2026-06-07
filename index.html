@@ -288,14 +288,183 @@ display:none;
 </div>
 </div>
 
+```html
 <nav>
 <ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#contact">Contact</a></li>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="contact.html">Contact</a></li>
 </ul>
 </nav>
+```
+
+Then remove these entire sections from `index.html`:
+
+```html
+<section class="container" id="about">
+...
+</section>
+
+<section class="container" id="services">
+...
+</section>
+
+<section class="container" id="contact">
+...
+</section>
+```
+
+Replace them with this professional homepage content:
+
+```html
+<!-- COMPANY INTRODUCTION -->
+
+<section class="container">
+
+<h2 class="section-title">
+Welcome to Transparent World Printing
+</h2>
+
+<p class="section-subtitle">
+Providing professional printing, business documentation,
+ICT support and digital solutions throughout Papua New Guinea.
+</p>
+
+<div class="about">
+
+<div class="about-box">
+<h3>Professional Solutions</h3>
+
+<p>
+We deliver quality printing services, business support,
+proposal development, website design and ICT solutions
+for businesses, organizations, educational institutions
+and individuals.
+</p>
+
+</div>
+
+<div class="about-box">
+<h3>Trusted Service Partner</h3>
+
+<p>
+Our commitment is to provide reliable, affordable and
+innovative solutions that help our clients achieve their
+goals and strengthen their professional presence.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURED SERVICES -->
+
+<section class="container">
+
+<h2 class="section-title">
+Featured Services
+</h2>
+
+<p class="section-subtitle">
+A glimpse of the solutions we provide.
+</p>
+
+<div class="services">
+
+<div class="card">
+<h3>Printing Solutions</h3>
+<p>
+Professional colour and black & white printing services.
+</p>
+</div>
+
+<div class="card">
+<h3>Business Documentation</h3>
+<p>
+Profiles, proposals, reports and official documents.
+</p>
+</div>
+
+<div class="card">
+<h3>Website Development</h3>
+<p>
+Modern websites for businesses and organizations.
+</p>
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:40px;">
+<a href="services.html" class="btn btn-primary">
+View All Services
+</a>
+</div>
+
+</section>
+
+<!-- WHY CHOOSE US -->
+
+<section class="container">
+
+<h2 class="section-title">
+Why Choose Transparent World?
+</h2>
+
+<div class="services">
+
+<div class="card">
+<h3>Quality</h3>
+<p>
+Professional workmanship and attention to detail.
+</p>
+</div>
+
+<div class="card">
+<h3>Reliability</h3>
+<p>
+Dependable services delivered on time.
+</p>
+</div>
+
+<div class="card">
+<h3>Innovation</h3>
+<p>
+Modern solutions tailored to client needs.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CALL TO ACTION -->
+
+<section class="container">
+
+<div class="contact-box">
+
+<h2 style="margin-bottom:20px;">
+Ready To Start Your Project?
+</h2>
+
+<p>
+Contact our team today and discover how Transparent World
+Printing can help your business or organization.
+</p>
+
+<br>
+
+<a href="contact.html" class="btn btn-primary">
+Contact Us Today
+</a>
+
+</div>
+
+</section>
+
 
 </header>
 
@@ -350,88 +519,6 @@ documentation support, digital solutions and professional service delivery.
 
 </div>
 
-</section>
-
-<section class="container" id="services">
-
-<h2 class="section-title">Our Services</h2>
-
-<p class="section-subtitle">
-Comprehensive business and office support solutions.
-</p>
-
-<div class="services">
-
-<div class="card">
-<h3>Printing Services</h3>
-<p>Colour printing, black & white printing and bulk printing.</p>
-</div>
-
-<div class="card">
-<h3>Binding & Photocopying</h3>
-<p>Professional document finishing and duplication services.</p>
-</div>
-
-<div class="card">
-<h3>Scanning Services</h3>
-<p>Document digitization and electronic archiving.</p>
-</div>
-
-<div class="card">
-<h3>Business Profile Writing</h3>
-<p>Professional company profiles and capability statements.</p>
-</div>
-
-<div class="card">
-<h3>Project Proposal Writing</h3>
-<p>Funding proposals, project reports and concept papers.</p>
-</div>
-
-<div class="card">
-<h3>Website Development</h3>
-<p>Modern websites for businesses and organizations.</p>
-</div>
-
-<div class="card">
-<h3>VSAT & Office Setup</h3>
-<p>Technology installation and office support services.</p>
-</div>
-
-<div class="card">
-<h3>Letter Writing</h3>
-<p>Professional correspondence and official documentation.</p>
-</div>
-
-<div class="card">
-<h3>CV Compiling</h3>
-<p>Professional CV and resume preparation.</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="container" id="contact">
-
-<h2 class="section-title">Contact Us</h2>
-
-<div class="contact-box">
-
-<p><strong>Business Name:</strong> Transparent World Printing</p>
-<p><strong>Phone:</strong> </p>
-<p><strong>Email:</strong> transparentworldprinting@gmail.com</p>
-<p><strong>Location:</strong> Papua New Guinea</p>
-
-<br>
-
-<p>
-Send us your documents and requirements for a fast quotation.
-We serve individuals, businesses, schools, churches and NGOs.
-</p>
-
-</div>
-
-</section>
 
 <footer>
 <p>© 2026 Transparent World Printing. All Rights Reserved.</p>
