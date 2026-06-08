@@ -196,7 +196,74 @@ display:none;
 }
 
 }
+/* MOBILE MENU */
 
+.menu-toggle{
+display:none;
+font-size:2rem;
+color:#00bfff;
+cursor:pointer;
+user-select:none;
+}
+
+/* Desktop */
+#navbar{
+display:block;
+}
+
+/* Mobile Only */
+@media(max-width:900px){
+
+.hero h1{
+font-size:2.8rem;
+}
+
+/* Show hamburger */
+.menu-toggle{
+display:block;
+}
+
+/* Hide menu by default */
+#navbar{
+position:absolute;
+top:100%;
+left:0;
+width:100%;
+background:rgba(0,0,0,.97);
+backdrop-filter:blur(20px);
+overflow:hidden;
+max-height:0;
+transition:max-height .4s ease;
+border-top:1px solid rgba(0,191,255,.2);
+}
+
+/* Open dropdown */
+#navbar.active{
+max-height:300px;
+}
+
+#navbar ul{
+display:flex;
+flex-direction:column;
+gap:0;
+}
+
+#navbar ul li{
+width:100%;
+text-align:center;
+border-bottom:1px solid rgba(0,191,255,.15);
+}
+
+#navbar ul li a{
+display:block;
+padding:18px;
+}
+
+/* Hide desktop menu layout */
+nav ul{
+gap:0;
+}
+}
 </style>
 </head>
 
@@ -209,10 +276,15 @@ display:none;
 <h2>Transparent World Printing</h2>
 </div>
 
-<nav>
+<!-- Mobile Menu Button -->
+<div class="menu-toggle" onclick="toggleMenu()">
+☰
+</div>
+
+<nav id="navbar">
 <ul>
 <li><a href="index.html">Home</a></li>
-<li><a href="about.html">About Us</a></li>
+<li><a href="about.html">About</a></li>
 <li><a href="services.html">Services</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
@@ -402,6 +474,10 @@ Contact Us Today
 © 2026 Transparent World Printing. All Rights Reserved.
 </p>
 </footer>
-
+<script>
+function toggleMenu(){
+document.getElementById("navbar").classList.toggle("active");
+}
+</script>
 </body>
 </html>
