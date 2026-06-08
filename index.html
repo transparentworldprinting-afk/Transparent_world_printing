@@ -21,7 +21,11 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Poppins',sans-serif;
-background:#020202;
+background:
+radial-gradient(circle at center,
+#03111f 0%,
+#01060d 40%,
+#000 100%);
 color:#fff;
 overflow-x:hidden;
 line-height:1.7;
@@ -491,11 +495,84 @@ padding:25px;
 }
 
 }
+
+/* Galaxy */
+/* GALAXY BACKGROUND */
+
+#stars,
+#stars2,
+#galaxy{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:-1;
+}
+
+#stars{
+background-image:
+radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+radial-gradient(2px 2px at 150px 80px,#00bfff,transparent),
+radial-gradient(1px 1px at 250px 180px,#fff,transparent),
+radial-gradient(2px 2px at 400px 120px,#87cefa,transparent),
+radial-gradient(1px 1px at 600px 60px,#fff,transparent);
+background-size:800px 800px;
+animation:starsMove 150s linear infinite;
+opacity:.9;
+}
+
+#stars2{
+background-image:
+radial-gradient(2px 2px at 50px 50px,#00bfff,transparent),
+radial-gradient(2px 2px at 300px 200px,#fff,transparent),
+radial-gradient(1px 1px at 500px 400px,#87cefa,transparent);
+background-size:1000px 1000px;
+animation:starsMove 250s linear infinite;
+opacity:.5;
+}
+
+#galaxy{
+background:
+radial-gradient(circle at 50% 50%,
+rgba(0,170,255,.15),
+transparent 60%);
+filter:blur(120px);
+animation:galaxyPulse 8s ease-in-out infinite;
+}
+
+@keyframes starsMove{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-1000px);
+}
+}
+
+@keyframes galaxyPulse{
+0%{
+transform:scale(1);
+opacity:.10;
+}
+50%{
+transform:scale(1.4);
+opacity:.25;
+}
+100%{
+transform:scale(1);
+opacity:.10;
+}
+}
+/* end of Galaxy */ 
 </style>
 </head>
 
 <body>
-
+<div id="stars"></div>
+<div id="stars2"></div>
+<div id="galaxy"></div>
 <header>
 
 <div class="logo">
@@ -684,7 +761,47 @@ Contact Us Today
 <footer>
 <p>© 2026 Transparent World Printing. All Rights Reserved.</p>
 </footer>
-  
+  <script>
+
+for(let i=0;i<12;i++){
+
+const star=document.createElement("div");
+
+star.style.position="fixed";
+star.style.width="2px";
+star.style.height="120px";
+star.style.background=
+"linear-gradient(transparent,#00bfff,#ffffff)";
+star.style.transform="rotate(45deg)";
+star.style.pointerEvents="none";
+star.style.zIndex="-1";
+
+document.body.appendChild(star);
+
+setInterval(()=>{
+
+star.style.top=Math.random()*window.innerHeight+"px";
+star.style.left=Math.random()*window.innerWidth+"px";
+
+star.animate([
+{
+transform:"translate(0,0) rotate(45deg)",
+opacity:1
+},
+{
+transform:"translate(-700px,700px) rotate(45deg)",
+opacity:0
+}
+],
+{
+duration:3500
+});
+
+},Math.random()*6000+3000);
+
+}
+
+</script>
 <script>
 function toggleMenu(){
 document.getElementById("navbar").classList.toggle("active");
