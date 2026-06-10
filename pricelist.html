@@ -1,0 +1,265 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Price List | Transparent World Printing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+    color:#333;
+}
+
+/* HEADER */
+header{
+    background:#0d1b2a;
+    padding:15px 8%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:60px;
+    height:60px;
+    object-fit:contain;
+}
+
+.logo h2{
+    color:white;
+    font-size:1.1rem;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#00b4d8;
+}
+
+.menu-btn{
+    display:none;
+    color:white;
+    font-size:2rem;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    background:linear-gradient(rgba(13,27,42,.85),
+    rgba(13,27,42,.85)),
+    url("printing-bg.jpg") center/cover;
+    padding:120px 20px;
+    text-align:center;
+}
+
+.hero h1{
+    color:white;
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#ddd;
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+
+/* PRICE LIST */
+.price-section{
+    width:90%;
+    max-width:1200px;
+    margin:70px auto;
+    text-align:center;
+}
+
+.price-section h2{
+    color:#0d1b2a;
+    margin-bottom:15px;
+}
+
+.price-section p{
+    color:#666;
+    margin-bottom:30px;
+}
+
+.download-btn{
+    display:inline-block;
+    background:#00b4d8;
+    color:white;
+    padding:15px 30px;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:600;
+    margin-bottom:40px;
+    transition:.3s;
+}
+
+.download-btn:hover{
+    background:#0096c7;
+}
+
+.price-card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 25px rgba(0,0,0,.1);
+}
+
+.price-card img{
+    width:100%;
+    height:auto;
+    border-radius:10px;
+}
+
+/* FOOTER */
+footer{
+    background:#0d1b2a;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.nav-links{
+    position:absolute;
+    top:90px;
+    right:0;
+    width:250px;
+    background:#0d1b2a;
+    flex-direction:column;
+    display:none;
+    gap:0;
+}
+
+.nav-links.active{
+    display:flex;
+}
+
+.nav-links li{
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+.nav-links a{
+    display:block;
+    padding:15px 20px;
+}
+
+.menu-btn{
+    display:block;
+}
+
+.logo h2{
+    font-size:.9rem;
+}
+
+.hero h1{
+    font-size:2.2rem;
+}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+    <img src="logo.png" alt="Transparent World Printing">
+    <h2>Transparent World Printing</h2>
+</div>
+
+<ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about us.html">About Us</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="pricelist.html">Price List</a></li>
+    <li><a href="contact us.html">Contact Us</a></li>
+</ul>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+</nav>
+
+</header>
+
+<section class="hero">
+    <h1>Printing Price List</h1>
+    <p>
+        View our latest printing prices and download a copy for your records.
+        Contact us for custom quotations and bulk-order discounts.
+    </p>
+</section>
+
+<section class="price-section">
+
+<h2>Current Price List</h2>
+
+<p>
+Click the button below to download our complete printing price list.
+</p>
+
+<a href="pricelist.png" download class="download-btn">
+⬇ Download Price List
+</a>
+
+<div class="price-card">
+    <img src="pricelist.png" alt="Transparent World Printing Price List">
+</div>
+
+</section>
+
+<footer>
+    <p>
+        © 2026 Transparent World Printing. All Rights Reserved.
+    </p>
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
+```
