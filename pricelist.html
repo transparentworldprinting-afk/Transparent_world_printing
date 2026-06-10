@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -213,7 +212,12 @@ display:block;
 
 /* Mobile Only */
 @media(max-width:900px){
-
+header{
+    position:relative;
+}
+#navbar{
+    z-index:999;
+}
 .hero h1{
 font-size:2.8rem;
 }
@@ -264,7 +268,9 @@ nav ul{
 gap:0;
 }
 }
-/* PRICE LIST */
+
+    /* PRICE LIST */
+
 .price-section{
     width:90%;
     max-width:1200px;
@@ -273,18 +279,19 @@ gap:0;
 }
 
 .price-section h2{
-    color:#0d1b2a;
+    color:white;
     margin-bottom:15px;
+    text-shadow:0 0 10px #00aaff;
 }
 
 .price-section p{
-    color:#666;
+    color:#d0d0d0;
     margin-bottom:30px;
 }
 
 .download-btn{
     display:inline-block;
-    background:#00b4d8;
+    background:#00aaff;
     color:white;
     padding:15px 30px;
     text-decoration:none;
@@ -292,25 +299,28 @@ gap:0;
     font-weight:600;
     margin-bottom:40px;
     transition:.3s;
+    box-shadow:0 0 20px rgba(0,170,255,.5);
 }
 
 .download-btn:hover{
-    background:#0096c7;
+    background:#008ecc;
+    transform:translateY(-3px);
 }
 
 .price-card{
-    background:white;
+    background:rgba(255,255,255,.05);
     padding:25px;
     border-radius:20px;
-    box-shadow:0 5px 25px rgba(0,0,0,.1);
+    border:1px solid rgba(0,191,255,.2);
+    backdrop-filter:blur(10px);
 }
 
 .price-card img{
     width:100%;
+    max-width:1000px;
     height:auto;
     border-radius:10px;
 }
-
 </style>
 </head>
 
@@ -342,27 +352,31 @@ gap:0;
 
 <section class="hero">
 
+<div>
 
-    <h1>Printing Price List</h1>
-    <br>
-    <p>
-        View our latest printing prices and download a copy for your records.
-        Contact us for custom quotations and bulk-order discounts.
-    </p>
-    <br>
+<h1>Printing Price List</h1>
 
-<h1>Current Price List</h1>
-</section>
-
-<section class="price-section">
-
-<p>
-Click the button below to download our complete printing price list.
+<p style="max-width:800px;margin:20px auto;color:#ddd;">
+View our latest printing prices and download a copy for your records.
+Contact us for custom quotations, bulk orders, and special printing requirements.
 </p>
 
 <a href="Pricelist.png" download class="download-btn">
 ⬇ Download Price List
 </a>
+
+</div>
+
+</section>
+
+<section class="price-section">
+
+<h2>Current Price List</h2>
+
+<p>
+Browse our current printing prices below. For large orders and custom
+printing projects, please contact us for a personalized quotation.
+</p>
 
 <div class="price-card">
     <img src="Pricelist.png" alt="Transparent World Printing Price List">
@@ -378,7 +392,7 @@ Click the button below to download our complete printing price list.
 
 <script>
 function toggleMenu(){
-    document.getElementById("navLinks").classList.toggle("active");
+    document.getElementById("navbar").classList.toggle("active");
 }
 </script>
 
