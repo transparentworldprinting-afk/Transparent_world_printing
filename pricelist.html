@@ -321,6 +321,84 @@ gap:0;
     height:auto;
     border-radius:10px;
 }
+
+/* Order button */
+.order-btn{
+display:inline-block;
+margin-left:15px;
+padding:15px 30px;
+background:#28a745;
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:600;
+transition:.3s;
+}
+
+.order-btn:hover{
+background:#218838;
+}
+
+/* ORDER FORM */
+
+form{
+max-width:800px;
+margin:0 auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+form h3{
+margin-top:20px;
+color:#00bfff;
+}
+
+form input,
+form select,
+form textarea{
+padding:15px;
+border-radius:10px;
+border:1px solid rgba(0,191,255,.3);
+background:rgba(255,255,255,.05);
+color:white;
+font-size:1rem;
+}
+
+form textarea{
+min-height:120px;
+resize:vertical;
+}
+
+form option{
+color:black;
+}
+
+.total-box{
+margin-top:10px;
+padding:20px;
+border-radius:15px;
+background:rgba(0,170,255,.1);
+border:1px solid rgba(0,170,255,.3);
+text-align:center;
+font-size:1.3rem;
+}
+
+button{
+padding:15px;
+border:none;
+border-radius:50px;
+background:#00aaff;
+color:white;
+font-size:1rem;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#008ecc;
+}
 </style>
 </head>
 
@@ -365,7 +443,121 @@ Contact us for custom quotations, bulk orders, and special printing requirements
 ⬇ Download Price List
 </a>
 
+    
+</section>
+<section class="container">
+
+<h2 class="section-title">
+Place Your Order Online
+</h2>
+
+<p style="text-align:center;color:#d0d0d0;margin-bottom:40px;">
+Upload your document and submit your printing request.
+</p>
+
+<form
+<section class="container">
+<form
+action="https://formsubmit.co/transparentworldprinting@gmail.com"
+method="POST"
+enctype="multipart/form-data"
+onsubmit="return confirmOrder();">
+
+<input type="hidden" name="_subject"
+value="New Printing Order">
+
+<input type="hidden" name="_captcha" value="false">
+
+<input type="hidden"
+name="_next"
+value="thankyou.html">
+
+<h3>Customer Details</h3>
+
+<input
+type="text"
+name="Customer Name"
+placeholder="Full Name"
+required>
+
+<input
+type="text"
+name="Contact Number"
+placeholder="Phone Number"
+required>
+
+<input
+type="email"
+name="Email"
+placeholder="Email Address">
+
+<h3>Upload Document</h3>
+
+<input
+type="url"
+name="Google Drive Link"
+placeholder="https://drive.google.com/drive/folders/12FBEJCER6tBOb6R0hzsupGzaRAm99s_U?usp=drive_link"
+required>
+
+<h3>Printing Options</h3>
+
+<select id="service" name="Service" onchange="calculateTotal()" required>
+<option value="">Select Service</option>
+<option value="0.60">A4 Black & White (Single Side)</option>
+<option value="1.00">A4 Black & White (Double Side)</option>
+<option value="1.50">A4 Colour (Single Side)</option>
+<option value="2.00">A4 Colour (Double Side)</option>
+<option value="3.00">A4 Full Colour (Single Side)</option>
+<option value="3.50">A4 Full Colour (Double Side)</option>
+<option value="1.50">A3 Black & White (Single Side)</option>
+<option value="2.00">A3 Black & White (Double Side)</option>
+<option value="3.00">A3 Colour (Single Side)</option>
+<option value="4.00">A3 Colour (Double Side)</option>
+<option value="5.00">A3 Full Colour (Single Side)</option>
+<option value="3.00">A4 Lamination</option>
+<option value="5.00">A3 Lamination</option>
+<option value="2.00">ID Card Lamination</option>
+<option value="1.00">PDF Conversion</option>
+<option value="0.60">Image Scan</option>
+</select>
+
+<select name="Paper Size">
+<option>A4</option>
+<option>A3</option>
+</select>
+
+<select name="Print Type">
+<option>Black & White</option>
+<option>Colour</option>
+</select>
+
+<input
+type="number"
+id="quantity"
+name="Quantity"
+value="1"
+min="1"
+oninput="calculateTotal()"
+required>
+
+<textarea
+name="Instructions"
+placeholder="Special Instructions"></textarea>
+
+<div class="total-box">
+Total Cost: <strong id="total">K0.00</strong>
 </div>
+
+<input
+type="hidden"
+id="totalCost"
+name="Total Cost">
+
+<button type="submit">
+Submit Order
+</button>
+
+</form>
 
 </section>
 
@@ -394,6 +586,46 @@ printing projects, please contact us for a personalized quotation.
 function toggleMenu(){
     document.getElementById("navbar").classList.toggle("active");
 }
+</script>
+
+<script>
+
+function calculateTotal(){
+
+let service =
+parseFloat(
+document.getElementById("service").value
+) || 0;
+
+let qty =
+parseInt(
+document.getElementById("quantity").value
+) || 1;
+
+let total = service * qty;
+
+document.getElementById("total").innerHTML =
+"K" + total.toFixed(2);
+
+document.getElementById("totalCost").value =
+"K" + total.toFixed(2);
+}
+
+function confirmOrder(){
+
+let total =
+document.getElementById("total").innerText;
+
+return confirm(
+"Total Cost: " +
+total +
+"\n\nAre you sure you want to submit this order?"
+);
+
+}
+
+window.onload = calculateTotal;
+
 </script>
 
 </body>
